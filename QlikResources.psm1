@@ -64,7 +64,7 @@ class QlikApp{
           Invoke-QlikPost /qrs/app/$($item.id)/reload
         }
       }
-      else #if ($this.Force)
+      elseif ($this.Force)
       {
         Write-Verbose "Updating app with ID $($item.id)"
         Write-Verbose -Message "Importing app from $($this.Source)"
