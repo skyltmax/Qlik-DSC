@@ -1625,10 +1625,14 @@ class QlikVirtualProxy{
       if($present) {
         if($this.hasProperties($item))
         {
-          if(Test-Path $this.samlMetadataExportPath) {
-            return $true
+          if( $this.samlMetadataExportPath ) {
+            if(Test-Path $this.samlMetadataExportPath) {
+              return $true
+            } else {
+              return $false
+            }
           } else {
-            return $false
+            return $true
           }
         } else {
           return $false
